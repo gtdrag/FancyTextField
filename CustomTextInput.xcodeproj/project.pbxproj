@@ -12,6 +12,8 @@
 		D6C49982200FDF30006C8F05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6C49980200FDF30006C8F05 /* Main.storyboard */; };
 		D6C49984200FDF30006C8F05 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6C49983200FDF30006C8F05 /* Assets.xcassets */; };
 		D6C49987200FDF30006C8F05 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6C49985200FDF30006C8F05 /* LaunchScreen.storyboard */; };
+		D6C4998F200FDF8E006C8F05 /* FancyTextInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4998E200FDF8E006C8F05 /* FancyTextInput.swift */; };
+		D6C49991200FDFE3006C8F05 /* FancyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6C49990200FDFE3006C8F05 /* FancyView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +24,8 @@
 		D6C49983200FDF30006C8F05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6C49986200FDF30006C8F05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D6C49988200FDF30006C8F05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D6C4998E200FDF8E006C8F05 /* FancyTextInput.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyTextInput.swift; sourceTree = "<group>"; };
+		D6C49990200FDFE3006C8F05 /* FancyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FancyView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,8 @@
 			children = (
 				D6C4997C200FDF30006C8F05 /* AppDelegate.swift */,
 				D6C4997E200FDF30006C8F05 /* ViewController.swift */,
+				D6C4998E200FDF8E006C8F05 /* FancyTextInput.swift */,
+				D6C49990200FDFE3006C8F05 /* FancyView.xib */,
 				D6C49980200FDF30006C8F05 /* Main.storyboard */,
 				D6C49983200FDF30006C8F05 /* Assets.xcassets */,
 				D6C49985200FDF30006C8F05 /* LaunchScreen.storyboard */,
@@ -125,6 +131,7 @@
 			files = (
 				D6C49987200FDF30006C8F05 /* LaunchScreen.storyboard in Resources */,
 				D6C49984200FDF30006C8F05 /* Assets.xcassets in Resources */,
+				D6C49991200FDFE3006C8F05 /* FancyView.xib in Resources */,
 				D6C49982200FDF30006C8F05 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -138,6 +145,7 @@
 			files = (
 				D6C4997F200FDF30006C8F05 /* ViewController.swift in Sources */,
 				D6C4997D200FDF30006C8F05 /* AppDelegate.swift in Sources */,
+				D6C4998F200FDF8E006C8F05 /* FancyTextInput.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
