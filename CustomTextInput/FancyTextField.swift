@@ -8,8 +8,14 @@
 
 import UIKit
 
+@objc protocol FancyTextFieldDelegate {
+    @objc optional func fancyTextFieldShouldReturn(fancyTextField: FancyTextField)
+    @objc optional func fancyTextFieldDidBeginEditing(fancyTextField: FancyTextField)
+    @objc optional func fancyTextFieldDidChange(fancyTextField: FancyTextField)
+}
+
 @IBDesignable
-class FancyTextInput: UIView, UITextFieldDelegate {
+class FancyTextField: UIView, UITextFieldDelegate {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet var textField: UITextField!
@@ -21,6 +27,7 @@ class FancyTextInput: UIView, UITextFieldDelegate {
     @IBOutlet var labelBottomConstraint: NSLayoutConstraint!
     
     var firstResized = false
+    var delegate:FancyTextFieldDelegate?
     
     @IBInspectable
     var placeholderText: String = "" {
@@ -81,8 +88,8 @@ class FancyTextInput: UIView, UITextFieldDelegate {
     
     // MARK:- ---> UITextFieldDelegate Methods
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        // became first responder
         animateUnderline(focus: true)
+        self.delegate?.fancyTextFieldDidBeginEditing?(fancyTextField: self)
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -91,11 +98,13 @@ class FancyTextInput: UIView, UITextFieldDelegate {
         if textField.text?.count == 0 {
             doResizeAnmimation(focus: false)
         }
+        self.delegate?.fancyTextFieldShouldReturn?(fancyTextField: self)
         return true
     }
     // MARK:   <--------
     
     @objc func textFieldDidChange(textField: UITextField) {
+        self.delegate?.fancyTextFieldDidChange?(fancyTextField: self)
         if !self.firstResized {
             doResizeAnmimation(focus: true)
         }
@@ -113,7 +122,6 @@ class FancyTextInput: UIView, UITextFieldDelegate {
         textFieldTopConstraint.constant = focus ? self.frame.height * 0.3 : 0
         labelBottomConstraint.constant = focus ? -self.frame.height * 0.6 : 0
         textField.setLeftPaddingPoints(focus ? 10 : 15)
-        // TODO: fix leading when in focus (variable by string length?)
         placeholderTextLeading.constant = focus ? CGFloat(-(placeHolderTextLabel.frame.width * 0.15)) : 15
         UIView.animate(withDuration: 0.3) {
             self.placeHolderTextLabel.transform = CGAffineTransform(scaleX: focus ? 0.7 : 1, y: focus ? 0.7 : 1)

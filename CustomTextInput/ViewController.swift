@@ -8,18 +8,20 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class ViewController: UIViewController, FancyTextFieldDelegate {
+    @IBOutlet var firstNameInput: FancyTextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        firstNameInput.delegate = self
+    }
+    
+    func fancyTextFieldDidChange(fancyTextField: FancyTextField) {
+        print("text changed: \(fancyTextField.textField.text!)")
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func fancyTextFieldShouldReturn(fancyTextField: FancyTextField) {
+        print("return key pressed")
     }
-
-
 }
 
