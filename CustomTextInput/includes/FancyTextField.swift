@@ -39,7 +39,7 @@ class FancyTextField: UIView, UITextFieldDelegate {
     }
     
     @IBInspectable
-    var placeholderTextColor: UIColor = .black {
+    var placeholderTextColor: UIColor = .darkGray {
         didSet {
             updateView()
         }
@@ -53,7 +53,7 @@ class FancyTextField: UIView, UITextFieldDelegate {
     }
     
     @IBInspectable
-    var underlineColor: UIColor = .gray {
+    var underlineColor: UIColor = .blue {
         didSet {
             updateView()
         }
@@ -124,11 +124,11 @@ class FancyTextField: UIView, UITextFieldDelegate {
             doResizeAnmimation(focus: true)
         }
     }
-    // MARK:   <--------
+    
     
     fileprivate func animateUnderline(focus: Bool) {
         self.lineViewWidth.constant = focus ? self.frame.width : 0
-        UIView.animate(withDuration: 0.25) {
+        UIView.animate(withDuration: 0.3) {
             self.layoutIfNeeded()
         }
     }

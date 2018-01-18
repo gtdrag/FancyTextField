@@ -8,6 +8,7 @@
 
 import UIKit
 
+
 class ViewController: UIViewController, FancyTextFieldDelegate {
     @IBOutlet var firstNameInput: FancyTextField!
     @IBOutlet var lastNameInput: FancyTextField!

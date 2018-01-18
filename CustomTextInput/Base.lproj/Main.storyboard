@@ -19,7 +19,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="yvt-Je-oV7">
-                                <rect key="frame" x="16" y="40" width="343" height="140"/>
+                                <rect key="frame" x="16" y="92" width="343" height="140"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="QE1-dY-6N9">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="62.5"/>
@@ -111,11 +111,20 @@
                                     <constraint firstAttribute="height" constant="140" id="Cub-PC-GKT"/>
                                 </constraints>
                             </stackView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Signup Now!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c23-QW-bXD">
+                                <rect key="frame" x="16" y="36" width="343" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.9882352941176471" green="0.9882352941176471" blue="0.9882352941176471" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c23-QW-bXD" secondAttribute="trailing" constant="16" id="2b1-Gc-Adm"/>
                             <constraint firstItem="yvt-Je-oV7" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="9dh-zq-FqC"/>
-                            <constraint firstItem="yvt-Je-oV7" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="XHi-5w-I8m"/>
+                            <constraint firstItem="c23-QW-bXD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="16" id="Ls7-Xk-pHD"/>
+                            <constraint firstItem="c23-QW-bXD" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="16" id="QW9-6h-3GD"/>
+                            <constraint firstItem="yvt-Je-oV7" firstAttribute="top" secondItem="c23-QW-bXD" secondAttribute="bottom" constant="20" id="WCY-lp-aVJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="yvt-Je-oV7" secondAttribute="trailing" constant="16" id="xJp-px-HH7"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
