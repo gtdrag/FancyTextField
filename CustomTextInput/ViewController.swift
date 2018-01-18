@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController: UIViewController, FancyTextFieldDelegate {
     @IBOutlet var firstNameInput: FancyTextField!
+    @IBOutlet var lastNameInput: FancyTextField!
+    @IBOutlet var emailInput: FancyTextField!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -17,7 +19,7 @@ class ViewController: UIViewController, FancyTextFieldDelegate {
     }
     
     func fancyTextFieldDidChange(fancyTextField: FancyTextField) {
-        print("text changed: \(fancyTextField.textField.text!)")
+        print("text changed: \(fancyTextField.text!)")
     }
 
     func fancyTextFieldShouldReturn(fancyTextField: FancyTextField) {

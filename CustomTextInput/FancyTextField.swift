@@ -12,6 +12,7 @@ import UIKit
     @objc optional func fancyTextFieldShouldReturn(fancyTextField: FancyTextField)
     @objc optional func fancyTextFieldDidBeginEditing(fancyTextField: FancyTextField)
     @objc optional func fancyTextFieldDidChange(fancyTextField: FancyTextField)
+    @objc optional func fancyTextFieldShouldEndEditing(fancyTextField: FancyTextField)
 }
 
 @IBDesignable
@@ -27,6 +28,7 @@ class FancyTextField: UIView, UITextFieldDelegate {
     @IBOutlet var labelBottomConstraint: NSLayoutConstraint!
     
     var firstResized = false
+    var text: String?
     var delegate:FancyTextFieldDelegate?
     
     @IBInspectable
@@ -74,6 +76,9 @@ class FancyTextField: UIView, UITextFieldDelegate {
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
         textField.delegate = self
         textField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
+        self.layer.borderWidth = 0.5
+        self.layer.borderColor = UIColor.lightGray.cgColor
+        self.layer.cornerRadius = 5
     }
     
     
@@ -101,14 +106,25 @@ class FancyTextField: UIView, UITextFieldDelegate {
         self.delegate?.fancyTextFieldShouldReturn?(fancyTextField: self)
         return true
     }
-    // MARK:   <--------
+    
+    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+        animateUnderline(focus: false)
+        self.endEditing(true)
+        if textField.text?.count == 0 {
+            doResizeAnmimation(focus: false)
+        }
+        self.delegate?.fancyTextFieldShouldEndEditing?(fancyTextField: self)
+        return true
+    }
     
     @objc func textFieldDidChange(textField: UITextField) {
+        text = textField.text
         self.delegate?.fancyTextFieldDidChange?(fancyTextField: self)
         if !self.firstResized {
             doResizeAnmimation(focus: true)
         }
     }
+    // MARK:   <--------
     
     fileprivate func animateUnderline(focus: Bool) {
         self.lineViewWidth.constant = focus ? self.frame.width : 0
@@ -119,10 +135,10 @@ class FancyTextField: UIView, UITextFieldDelegate {
     
     fileprivate func doResizeAnmimation(focus: Bool) {
         self.firstResized = focus ? true : false
-        textFieldTopConstraint.constant = focus ? self.frame.height * 0.3 : 0
-        labelBottomConstraint.constant = focus ? -self.frame.height * 0.6 : 0
+        textFieldTopConstraint.constant = focus ? self.frame.height * 0.35 : 0
+        labelBottomConstraint.constant = focus ? -self.frame.height * 0.5 : 0
         textField.setLeftPaddingPoints(focus ? 10 : 15)
-        placeholderTextLeading.constant = focus ? CGFloat(-(placeHolderTextLabel.frame.width * 0.15)) : 15
+        placeholderTextLeading.constant = focus ? CGFloat(-(placeHolderTextLabel.frame.width * 0.13)) : 15
         UIView.animate(withDuration: 0.3) {
             self.placeHolderTextLabel.transform = CGAffineTransform(scaleX: focus ? 0.7 : 1, y: focus ? 0.7 : 1)
             self.layoutIfNeeded()
