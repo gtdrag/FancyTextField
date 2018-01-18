@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D63545112011214F0028AEAE /* FancyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63545102011214F0028AEAE /* FancyTextField.swift */; };
-		D63545132011215C0028AEAE /* FancyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D63545122011215C0028AEAE /* FancyView.xib */; };
+		D635451720113DF90028AEAE /* FancyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6354516201125E60028AEAE /* FancyTextField.swift */; };
+		D635451820113DFF0028AEAE /* FancyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6354515201125E60028AEAE /* FancyView.xib */; };
 		D6C4997D200FDF30006C8F05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4997C200FDF30006C8F05 /* AppDelegate.swift */; };
 		D6C4997F200FDF30006C8F05 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4997E200FDF30006C8F05 /* ViewController.swift */; };
 		D6C49982200FDF30006C8F05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D6C49980200FDF30006C8F05 /* Main.storyboard */; };
@@ -17,8 +17,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		D63545102011214F0028AEAE /* FancyTextField.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = FancyTextField.swift; path = ../../../.Trash/FancyTextField.swift; sourceTree = "<group>"; };
-		D63545122011215C0028AEAE /* FancyView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = FancyView.xib; path = ../../../.Trash/FancyView.xib; sourceTree = "<group>"; };
 		D6354515201125E60028AEAE /* FancyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FancyView.xib; sourceTree = "<group>"; };
 		D6354516201125E60028AEAE /* FancyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyTextField.swift; sourceTree = "<group>"; };
 		D6C49979200FDF30006C8F05 /* CustomTextInput.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomTextInput.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -41,18 +39,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		D6354514201125E60028AEAE /* includes */ = {
+		D635451920114C250028AEAE /* otherstuff */ = {
 			isa = PBXGroup;
 			children = (
-				D6354515201125E60028AEAE /* FancyView.xib */,
-				D6354516201125E60028AEAE /* FancyTextField.swift */,
+				D6C4997C200FDF30006C8F05 /* AppDelegate.swift */,
+				D6C4997E200FDF30006C8F05 /* ViewController.swift */,
+				D6C49980200FDF30006C8F05 /* Main.storyboard */,
+				D6C49983200FDF30006C8F05 /* Assets.xcassets */,
+				D6C49985200FDF30006C8F05 /* LaunchScreen.storyboard */,
+				D6C49988200FDF30006C8F05 /* Info.plist */,
 			);
-			path = includes;
+			path = otherstuff;
 			sourceTree = "<group>";
 		};
 		D6C49970200FDF30006C8F05 = {
 			isa = PBXGroup;
 			children = (
+				D635451920114C250028AEAE /* otherstuff */,
 				D6C4997B200FDF30006C8F05 /* CustomTextInput */,
 				D6C4997A200FDF30006C8F05 /* Products */,
 			);
@@ -69,15 +72,8 @@
 		D6C4997B200FDF30006C8F05 /* CustomTextInput */ = {
 			isa = PBXGroup;
 			children = (
-				D6C4997C200FDF30006C8F05 /* AppDelegate.swift */,
-				D6C4997E200FDF30006C8F05 /* ViewController.swift */,
-				D6354514201125E60028AEAE /* includes */,
-				D63545122011215C0028AEAE /* FancyView.xib */,
-				D63545102011214F0028AEAE /* FancyTextField.swift */,
-				D6C49980200FDF30006C8F05 /* Main.storyboard */,
-				D6C49983200FDF30006C8F05 /* Assets.xcassets */,
-				D6C49985200FDF30006C8F05 /* LaunchScreen.storyboard */,
-				D6C49988200FDF30006C8F05 /* Info.plist */,
+				D6354515201125E60028AEAE /* FancyView.xib */,
+				D6354516201125E60028AEAE /* FancyTextField.swift */,
 			);
 			path = CustomTextInput;
 			sourceTree = "<group>";
@@ -142,8 +138,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				D6C49987200FDF30006C8F05 /* LaunchScreen.storyboard in Resources */,
-				D63545132011215C0028AEAE /* FancyView.xib in Resources */,
 				D6C49984200FDF30006C8F05 /* Assets.xcassets in Resources */,
+				D635451820113DFF0028AEAE /* FancyView.xib in Resources */,
 				D6C49982200FDF30006C8F05 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -155,8 +151,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D635451720113DF90028AEAE /* FancyTextField.swift in Sources */,
 				D6C4997F200FDF30006C8F05 /* ViewController.swift in Sources */,
-				D63545112011214F0028AEAE /* FancyTextField.swift in Sources */,
 				D6C4997D200FDF30006C8F05 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
