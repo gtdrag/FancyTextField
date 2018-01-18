@@ -20,14 +20,6 @@ class FancyTextInput: UIView, UITextFieldDelegate {
     @IBOutlet var textFieldTopConstraint: NSLayoutConstraint!
     @IBOutlet var labelBottomConstraint: NSLayoutConstraint!
     
-    
-    @IBInspectable
-    var inputTextColor: UIColor = .black {
-        didSet {
-            updateView()
-        }
-    }
-    
     @IBInspectable
     var placeholderText: String = "" {
         didSet {
@@ -43,54 +35,18 @@ class FancyTextInput: UIView, UITextFieldDelegate {
     }
     
     @IBInspectable
-    var underlineColor: UIColor = .gray {
+    var inputTextColor: UIColor = .black {
         didSet {
             updateView()
         }
     }
     
-    fileprivate func updateView() {
-        placeHolderTextLabel.text = placeholderText
-        textField.textColor = placeholderTextColor
-        textField.setLeftPaddingPoints(15)
-        placeholderTextLeading.constant = 15
-        lineView.layer.backgroundColor = underlineColor.cgColor
-    }
-    
-    // MARK:- ---> UITextFieldDelegate
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        // became first responder
-        animateUnderline(focus: true)
-    }
-    
-
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        animateUnderline(focus: false)
-        self.endEditing(true)
-        return true
-    }
-    
-    func animateUnderline(focus: Bool) {
-        self.lineViewWidth.constant = focus ? self.frame.width : 0
-        UIView.animate(withDuration: 0.25) {
-            self.layoutIfNeeded()
+    @IBInspectable
+    var underlineColor: UIColor = .gray {
+        didSet {
+            updateView()
         }
     }
-    
-    func doResizeAnmimation() {
-        textField.textColor = inputTextColor
-        textFieldTopConstraint.constant = self.frame.height * 0.3
-        // add to bottom constraint of label
-        labelBottomConstraint.constant = -(self.frame.height * 0.6)
-        textField.setLeftPaddingPoints(10)
-        placeholderTextLeading.constant = -1
-        UIView.animate(withDuration: 0.3) {
-            self.placeHolderTextLabel.transform = CGAffineTransform(scaleX: 0.7, y: 0.7)
-            self.layoutIfNeeded()
-        }
-    }
-    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -110,10 +66,54 @@ class FancyTextInput: UIView, UITextFieldDelegate {
         textField.delegate = self
         textField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
     }
+
+    
+    fileprivate func updateView() {
+        placeHolderTextLabel.text = placeholderText
+        placeHolderTextLabel.textColor = placeholderTextColor
+        textField.textColor = inputTextColor
+        textField.setLeftPaddingPoints(15)
+        placeholderTextLeading.constant = 15
+        lineView.layer.backgroundColor = underlineColor.cgColor
+    }
+    
+    // MARK:- ---> UITextFieldDelegate Methods
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        // became first responder
+        animateUnderline(focus: true)
+    }
+    
+   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        animateUnderline(focus: false)
+        self.endEditing(true)
+    if textField.text?.count == 0 {
+        doResizeAnmimation(focus: false)
+    }
+        return true
+    }
+    // MARK:   <--------
     
     @objc func textFieldDidChange(textField: UITextField) {
         if textField.text?.count == 1 {
-            doResizeAnmimation()
+            doResizeAnmimation(focus: true)
+        }
+    }
+    
+    fileprivate func animateUnderline(focus: Bool) {
+        self.lineViewWidth.constant = focus ? self.frame.width : 0
+        UIView.animate(withDuration: 0.25) {
+            self.layoutIfNeeded()
+        }
+    }
+    
+    fileprivate func doResizeAnmimation(focus: Bool) {
+        textFieldTopConstraint.constant = focus ? self.frame.height * 0.3 : 0
+        labelBottomConstraint.constant = focus ? -self.frame.height * 0.6 : 0
+        textField.setLeftPaddingPoints(focus ? 10 : 15)
+        placeholderTextLeading.constant = focus ? -1 : 15
+        UIView.animate(withDuration: 0.3) {
+            self.placeHolderTextLabel.transform = CGAffineTransform(scaleX: focus ? 0.7 : 1, y: focus ? 0.7 : 1)
+            self.layoutIfNeeded()
         }
     }
 }
