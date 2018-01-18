@@ -8,7 +8,7 @@
 
 import UIKit
 
-@objc protocol FancyTextFieldDelegate {
+@objc public protocol FancyTextFieldDelegate {
     @objc optional func fancyTextFieldShouldReturn(fancyTextField: FancyTextField)
     @objc optional func fancyTextFieldDidBeginEditing(fancyTextField: FancyTextField)
     @objc optional func fancyTextFieldDidChange(fancyTextField: FancyTextField)
@@ -16,7 +16,7 @@ import UIKit
 }
 
 @IBDesignable
-class FancyTextField: UIView, UITextFieldDelegate {
+open class FancyTextField: UIView, UITextFieldDelegate {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet var textField: UITextField!
@@ -64,13 +64,14 @@ class FancyTextField: UIView, UITextFieldDelegate {
         commonInit()
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         commonInit()
     }
     
     private func commonInit() {
-        Bundle.main.loadNibNamed("FancyView", owner: self, options: nil)
+        let podBundle = Bundle(for: FancyTextField.self)
+        podBundle.loadNibNamed("FancyView", owner: self, options: nil)
         addSubview(contentView)
         contentView.frame = self.bounds
         contentView.autoresizingMask = [.flexibleHeight, .flexibleWidth]
@@ -92,12 +93,12 @@ class FancyTextField: UIView, UITextFieldDelegate {
     }
     
     // MARK:- ---> UITextFieldDelegate Methods
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    public func textFieldDidBeginEditing(_ textField: UITextField) {
         animateUnderline(focus: true)
         self.delegate?.fancyTextFieldDidBeginEditing?(fancyTextField: self)
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         animateUnderline(focus: false)
         self.endEditing(true)
         if textField.text?.count == 0 {
@@ -107,7 +108,7 @@ class FancyTextField: UIView, UITextFieldDelegate {
         return true
     }
     
-    func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
+    public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
         animateUnderline(focus: false)
         self.endEditing(true)
         if textField.text?.count == 0 {
@@ -158,3 +159,4 @@ extension UITextField {
         self.rightViewMode = .always
     }
 }
+
