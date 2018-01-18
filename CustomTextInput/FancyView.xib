@@ -34,13 +34,13 @@
                         <constraint firstAttribute="height" constant="3" id="XN6-G0-xr0"/>
                     </constraints>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvJ-8j-nJ6">
-                    <rect key="frame" x="0.0" y="0.0" width="42" height="56"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvJ-8j-nJ6">
+                    <rect key="frame" x="0.0" y="0.0" width="379" height="56"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o0h-4r-zZr">
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o0h-4r-zZr">
                     <rect key="frame" x="0.0" y="0.0" width="379" height="56"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -58,6 +58,7 @@
                 <constraint firstAttribute="bottom" secondItem="gTV-vV-J0p" secondAttribute="bottom" id="jx6-CL-NsL"/>
                 <constraint firstItem="cvJ-8j-nJ6" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="nZi-hG-lqG"/>
                 <constraint firstItem="o0h-4r-zZr" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="vEs-Wz-YJC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="cvJ-8j-nJ6" secondAttribute="trailing" id="zzx-Gm-r6e"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>

@@ -20,6 +20,8 @@ class FancyTextInput: UIView, UITextFieldDelegate {
     @IBOutlet var textFieldTopConstraint: NSLayoutConstraint!
     @IBOutlet var labelBottomConstraint: NSLayoutConstraint!
     
+    var firstResized = false
+    
     @IBInspectable
     var placeholderText: String = "" {
         didSet {
@@ -66,7 +68,7 @@ class FancyTextInput: UIView, UITextFieldDelegate {
         textField.delegate = self
         textField.addTarget(self, action: #selector(textFieldDidChange(textField:)), for: .editingChanged)
     }
-
+    
     
     fileprivate func updateView() {
         placeHolderTextLabel.text = placeholderText
@@ -83,18 +85,18 @@ class FancyTextInput: UIView, UITextFieldDelegate {
         animateUnderline(focus: true)
     }
     
-   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         animateUnderline(focus: false)
         self.endEditing(true)
-    if textField.text?.count == 0 {
-        doResizeAnmimation(focus: false)
-    }
+        if textField.text?.count == 0 {
+            doResizeAnmimation(focus: false)
+        }
         return true
     }
     // MARK:   <--------
     
     @objc func textFieldDidChange(textField: UITextField) {
-        if textField.text?.count == 1 {
+        if !self.firstResized {
             doResizeAnmimation(focus: true)
         }
     }
@@ -107,10 +109,12 @@ class FancyTextInput: UIView, UITextFieldDelegate {
     }
     
     fileprivate func doResizeAnmimation(focus: Bool) {
+        self.firstResized = focus ? true : false
         textFieldTopConstraint.constant = focus ? self.frame.height * 0.3 : 0
         labelBottomConstraint.constant = focus ? -self.frame.height * 0.6 : 0
         textField.setLeftPaddingPoints(focus ? 10 : 15)
-        placeholderTextLeading.constant = focus ? -1 : 15
+        // TODO: fix leading when in focus (variable by string length?)
+        placeholderTextLeading.constant = focus ? CGFloat(-(placeHolderTextLabel.frame.width * 0.15)) : 15
         UIView.animate(withDuration: 0.3) {
             self.placeHolderTextLabel.transform = CGAffineTransform(scaleX: focus ? 0.7 : 1, y: focus ? 0.7 : 1)
             self.layoutIfNeeded()
