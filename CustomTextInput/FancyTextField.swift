@@ -28,8 +28,11 @@ open class FancyTextField: UIView, UITextFieldDelegate {
     @IBOutlet var labelBottomConstraint: NSLayoutConstraint!
     
     var firstResized = false
+    var selected = false
     var text: String?
+    var rotation: Int?
     var delegate:FancyTextFieldDelegate?
+    
     
     @IBInspectable
     var placeholderText: String = "" {
@@ -69,6 +72,14 @@ open class FancyTextField: UIView, UITextFieldDelegate {
         commonInit()
     }
     
+    override open func layoutSubviews() {
+        super.layoutSubviews()
+        if self.rotation != self.traitCollection.verticalSizeClass.rawValue {
+            self.rotation = self.traitCollection.verticalSizeClass.rawValue
+            animateUnderline(focus: selected)
+        }
+    }
+    
     private func commonInit() {
         let podBundle = Bundle(for: FancyTextField.self)
         podBundle.loadNibNamed("FancyView", owner: self, options: nil)
@@ -80,6 +91,7 @@ open class FancyTextField: UIView, UITextFieldDelegate {
         self.layer.borderWidth = 0.5
         self.layer.borderColor = UIColor.lightGray.cgColor
         self.layer.cornerRadius = 5
+        self.rotation = self.traitCollection.verticalSizeClass.rawValue
     }
     
     
@@ -88,45 +100,50 @@ open class FancyTextField: UIView, UITextFieldDelegate {
         placeHolderTextLabel.textColor = placeholderTextColor
         textField.textColor = inputTextColor
         lineView.layer.backgroundColor = underlineColor.cgColor
+        
     }
     
     // MARK:- ---> UITextFieldDelegate Methods
     public func textFieldDidBeginEditing(_ textField: UITextField) {
-        animateUnderline(focus: true)
+        self.selected = true
+        animateUnderline(focus: self.selected)
         self.delegate?.fancyTextFieldDidBeginEditing?(fancyTextField: self)
     }
     
     public func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        animateUnderline(focus: false)
+        self.selected = false
+        animateUnderline(focus: self.selected)
         self.endEditing(true)
         if textField.text?.count == 0 {
-            doResizeAnmimation(focus: false)
+            doResizeAnmimation(focus: self.selected)
         }
         self.delegate?.fancyTextFieldShouldReturn?(fancyTextField: self)
         return true
     }
     
     public func textFieldShouldEndEditing(_ textField: UITextField) -> Bool {
-        animateUnderline(focus: false)
+        self.selected = false
+        animateUnderline(focus: self.selected)
         self.endEditing(true)
         if textField.text?.count == 0 {
-            doResizeAnmimation(focus: false)
+            doResizeAnmimation(focus: self.selected)
         }
         self.delegate?.fancyTextFieldShouldEndEditing?(fancyTextField: self)
         return true
     }
     
     @objc func textFieldDidChange(textField: UITextField) {
+        self.selected = true
         text = textField.text
         self.delegate?.fancyTextFieldDidChange?(fancyTextField: self)
         if !self.firstResized {
-            doResizeAnmimation(focus: true)
+            doResizeAnmimation(focus: self.selected)
         }
     }
     
     
     fileprivate func animateUnderline(focus: Bool) {
-        self.lineViewWidth.constant = focus ? self.frame.width : 0
+        self.lineViewWidth.constant = focus ? self.layer.frame.width : 0
         UIView.animate(withDuration: 0.3) {
             self.layoutIfNeeded()
         }
