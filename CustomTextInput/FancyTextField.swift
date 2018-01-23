@@ -87,8 +87,6 @@ open class FancyTextField: UIView, UITextFieldDelegate {
         placeHolderTextLabel.text = placeholderText
         placeHolderTextLabel.textColor = placeholderTextColor
         textField.textColor = inputTextColor
-        textField.setLeftPaddingPoints(15)
-        placeholderTextLeading.constant = 15
         lineView.layer.backgroundColor = underlineColor.cgColor
     }
     
@@ -136,27 +134,15 @@ open class FancyTextField: UIView, UITextFieldDelegate {
     
     fileprivate func doResizeAnmimation(focus: Bool) {
         self.firstResized = focus ? true : false
-        textFieldTopConstraint.constant = focus ? self.frame.height * 0.35 : 0
+        textFieldTopConstraint.constant = focus ? self.frame.height * 0.33 : 0
         labelBottomConstraint.constant = focus ? -self.frame.height * 0.5 : 0
-        textField.setLeftPaddingPoints(focus ? 10 : 15)
-        placeholderTextLeading.constant = focus ? CGFloat(-(placeHolderTextLabel.frame.width * 0.13)) : 15
+        let oldFrame = self.placeHolderTextLabel.frame
         UIView.animate(withDuration: 0.3) {
+            self.placeHolderTextLabel.layer.anchorPoint = CGPoint(x: focus ? 0.715t : 0.5, y: 0.5)
             self.placeHolderTextLabel.transform = CGAffineTransform(scaleX: focus ? 0.7 : 1, y: focus ? 0.7 : 1)
+            self.placeHolderTextLabel.frame = oldFrame
             self.layoutIfNeeded()
         }
-    }
-}
-
-extension UITextField {
-    func setLeftPaddingPoints(_ amount:CGFloat){
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
-        self.leftView = paddingView
-        self.leftViewMode = .always
-    }
-    func setRightPaddingPoints(_ amount:CGFloat) {
-        let paddingView = UIView(frame: CGRect(x: 0, y: 0, width: amount, height: self.frame.size.height))
-        self.rightView = paddingView
-        self.rightViewMode = .always
     }
 }
 

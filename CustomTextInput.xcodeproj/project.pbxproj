@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D615FAF32016EAE00083A08F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6C49988200FDF30006C8F05 /* Info.plist */; };
 		D635451720113DF90028AEAE /* FancyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6354516201125E60028AEAE /* FancyTextField.swift */; };
 		D635451820113DFF0028AEAE /* FancyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6354515201125E60028AEAE /* FancyView.xib */; };
 		D6C4997D200FDF30006C8F05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4997C200FDF30006C8F05 /* AppDelegate.swift */; };
@@ -47,7 +48,6 @@
 				D6C49980200FDF30006C8F05 /* Main.storyboard */,
 				D6C49983200FDF30006C8F05 /* Assets.xcassets */,
 				D6C49985200FDF30006C8F05 /* LaunchScreen.storyboard */,
-				D6C49988200FDF30006C8F05 /* Info.plist */,
 			);
 			path = otherstuff;
 			sourceTree = "<group>";
@@ -72,6 +72,7 @@
 		D6C4997B200FDF30006C8F05 /* CustomTextInput */ = {
 			isa = PBXGroup;
 			children = (
+				D6C49988200FDF30006C8F05 /* Info.plist */,
 				D6354515201125E60028AEAE /* FancyView.xib */,
 				D6354516201125E60028AEAE /* FancyTextField.swift */,
 			);
@@ -140,6 +141,7 @@
 				D6C49987200FDF30006C8F05 /* LaunchScreen.storyboard in Resources */,
 				D6C49984200FDF30006C8F05 /* Assets.xcassets in Resources */,
 				D635451820113DFF0028AEAE /* FancyView.xib in Resources */,
+				D615FAF32016EAE00083A08F /* Info.plist in Resources */,
 				D6C49982200FDF30006C8F05 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

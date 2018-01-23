@@ -17,7 +17,6 @@
                 <outlet property="lineView" destination="gTV-vV-J0p" id="9Tp-B8-xK8"/>
                 <outlet property="lineViewWidth" destination="EDt-Xs-xRp" id="wkG-Pq-9RQ"/>
                 <outlet property="placeHolderTextLabel" destination="cvJ-8j-nJ6" id="ldw-tN-FFf"/>
-                <outlet property="placeholderTextLeading" destination="Yin-yu-tmi" id="ltp-4N-bQw"/>
                 <outlet property="textField" destination="o0h-4r-zZr" id="sDO-8L-WyE"/>
                 <outlet property="textFieldTopConstraint" destination="iTS-xx-UDq" id="SOQ-4j-JaR"/>
             </connections>
@@ -35,13 +34,13 @@
                     </constraints>
                 </view>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cvJ-8j-nJ6">
-                    <rect key="frame" x="0.0" y="0.0" width="379" height="56"/>
+                    <rect key="frame" x="15" y="0.0" width="364" height="56"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="o0h-4r-zZr">
-                    <rect key="frame" x="0.0" y="0.0" width="379" height="56"/>
+                    <rect key="frame" x="15" y="0.0" width="364" height="56"/>
                     <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits"/>
@@ -49,11 +48,11 @@
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="cvJ-8j-nJ6" firstAttribute="leading" secondItem="o0h-4r-zZr" secondAttribute="leading" id="OPl-5x-cvB"/>
                 <constraint firstItem="cvJ-8j-nJ6" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="PTF-UE-UN2"/>
-                <constraint firstItem="cvJ-8j-nJ6" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="Yin-yu-tmi"/>
                 <constraint firstItem="o0h-4r-zZr" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="eeH-JA-c8a"/>
                 <constraint firstItem="gTV-vV-J0p" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="f4C-yp-1QY"/>
-                <constraint firstItem="o0h-4r-zZr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="gKy-wr-ePB"/>
+                <constraint firstItem="o0h-4r-zZr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="gKy-wr-ePB"/>
                 <constraint firstItem="o0h-4r-zZr" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="iTS-xx-UDq"/>
                 <constraint firstAttribute="bottom" secondItem="gTV-vV-J0p" secondAttribute="bottom" id="jx6-CL-NsL"/>
                 <constraint firstItem="cvJ-8j-nJ6" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="nZi-hG-lqG"/>
