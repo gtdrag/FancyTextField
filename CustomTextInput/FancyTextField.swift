@@ -138,7 +138,7 @@ open class FancyTextField: UIView, UITextFieldDelegate {
         labelBottomConstraint.constant = focus ? -self.frame.height * 0.5 : 0
         let oldFrame = self.placeHolderTextLabel.frame
         UIView.animate(withDuration: 0.3) {
-            self.placeHolderTextLabel.layer.anchorPoint = CGPoint(x: focus ? 0.715t : 0.5, y: 0.5)
+            self.placeHolderTextLabel.layer.anchorPoint = CGPoint(x: focus ? 0.715 : 0.5, y: 0.5)
             self.placeHolderTextLabel.transform = CGAffineTransform(scaleX: focus ? 0.7 : 1, y: focus ? 0.7 : 1)
             self.placeHolderTextLabel.frame = oldFrame
             self.layoutIfNeeded()
