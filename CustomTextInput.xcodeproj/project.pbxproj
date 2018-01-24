@@ -7,7 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D615FAF32016EAE00083A08F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D6C49988200FDF30006C8F05 /* Info.plist */; };
+		D615FB082019111B0083A08F /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = D615FB072019111B0083A08F /* Default-568h@2x.png */; };
+		D615FB0A2019116A0083A08F /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D615FB092019116A0083A08F /* Info.plist */; };
 		D635451720113DF90028AEAE /* FancyTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6354516201125E60028AEAE /* FancyTextField.swift */; };
 		D635451820113DFF0028AEAE /* FancyView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D6354515201125E60028AEAE /* FancyView.xib */; };
 		D6C4997D200FDF30006C8F05 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6C4997C200FDF30006C8F05 /* AppDelegate.swift */; };
@@ -18,6 +19,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D615FB072019111B0083A08F /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		D615FB092019116A0083A08F /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D6354515201125E60028AEAE /* FancyView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FancyView.xib; sourceTree = "<group>"; };
 		D6354516201125E60028AEAE /* FancyTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FancyTextField.swift; sourceTree = "<group>"; };
 		D6C49979200FDF30006C8F05 /* CustomTextInput.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CustomTextInput.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,7 +29,6 @@
 		D6C49981200FDF30006C8F05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D6C49983200FDF30006C8F05 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D6C49986200FDF30006C8F05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		D6C49988200FDF30006C8F05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -43,6 +45,8 @@
 		D635451920114C250028AEAE /* otherstuff */ = {
 			isa = PBXGroup;
 			children = (
+				D615FB072019111B0083A08F /* Default-568h@2x.png */,
+				D615FB092019116A0083A08F /* Info.plist */,
 				D6C4997C200FDF30006C8F05 /* AppDelegate.swift */,
 				D6C4997E200FDF30006C8F05 /* ViewController.swift */,
 				D6C49980200FDF30006C8F05 /* Main.storyboard */,
@@ -72,7 +76,6 @@
 		D6C4997B200FDF30006C8F05 /* CustomTextInput */ = {
 			isa = PBXGroup;
 			children = (
-				D6C49988200FDF30006C8F05 /* Info.plist */,
 				D6354515201125E60028AEAE /* FancyView.xib */,
 				D6354516201125E60028AEAE /* FancyTextField.swift */,
 			);
@@ -140,9 +143,10 @@
 			files = (
 				D6C49987200FDF30006C8F05 /* LaunchScreen.storyboard in Resources */,
 				D6C49984200FDF30006C8F05 /* Assets.xcassets in Resources */,
+				D615FB0A2019116A0083A08F /* Info.plist in Resources */,
 				D635451820113DFF0028AEAE /* FancyView.xib in Resources */,
-				D615FAF32016EAE00083A08F /* Info.plist in Resources */,
 				D6C49982200FDF30006C8F05 /* Main.storyboard in Resources */,
+				D615FB082019111B0083A08F /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -294,7 +298,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 75SL55EPD7;
-				INFOPLIST_FILE = CustomTextInput/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/otherstuff/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = George.CustomTextInput;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -309,7 +313,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 75SL55EPD7;
-				INFOPLIST_FILE = CustomTextInput/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/otherstuff/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = George.CustomTextInput;
 				PRODUCT_NAME = "$(TARGET_NAME)";

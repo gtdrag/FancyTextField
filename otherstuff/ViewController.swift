@@ -17,14 +17,27 @@ class ViewController: UIViewController, FancyTextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         firstNameInput.delegate = self
+        lastNameInput.delegate = self
+        emailInput.delegate = self
     }
     
     func fancyTextFieldDidChange(fancyTextField: FancyTextField) {
-        print("text changed: \(fancyTextField.text!)")
+        if fancyTextField.placeholderText == "Email" {
+            guard let email = fancyTextField.text else { return }
+            // if text changes to empty string, reset validation state to '.none'
+            if email.isEmpty {
+                fancyTextField.valid = .none
+                // otherwise set valid or invalid based on current content
+            } else {
+                fancyTextField.valid = self.isValidEmail(email: email) ? .valid : .invalid
+            }
+        }
     }
-
-    func fancyTextFieldShouldReturn(fancyTextField: FancyTextField) {
-        print("return key pressed")
+    
+    func isValidEmail(email: String) -> Bool {
+        let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
+        let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+        return emailTest.evaluate(with: email)
     }
 }
 
