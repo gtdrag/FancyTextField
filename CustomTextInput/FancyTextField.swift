@@ -5,8 +5,21 @@
 //  Created by George Drag on 1/17/18.
 //  Copyright © 2018 Red Foundry. All rights reserved.
 //
+// ******* Inspectable keyboard types *********
+//0: default // Default type for the current input method.
+//1: asciiCapable // Displays a keyboard which can enter ASCII characters
+//2: numbersAndPunctuation // Numbers and assorted punctuation.
+//3: URL // A type optimized for URL entry (shows . / .com prominently).
+//4: numberPad // A number pad with locale-appropriate digits (0-9, ۰-۹, ०-९, etc.). Suitable for PIN entry.
+//5: phonePad // A phone pad (1-9, *, 0, #, with letters under the numbers).
+//6: namePhonePad // A type optimized for entering a person's name or phone number.
+//7: emailAddress // A type optimized for multiple email address entry (shows space @ . prominently).
+//8: decimalPad // A number pad with a decimal point.
+//9: twitter // A type optimized for twitter text entry (easy access to @ #)
 
 import UIKit
+
+
 
 @objc public protocol FancyTextFieldDelegate {
     @objc optional func fancyTextFieldShouldReturn(fancyTextField: FancyTextField)
@@ -33,6 +46,15 @@ open class FancyTextField: UIView, UITextFieldDelegate {
     var rotation: Int?
     var delegate:FancyTextFieldDelegate?
     
+    @IBInspectable
+    var keyboardType:Int = 0 {
+        didSet{
+            if !(0...9).contains(keyboardType) {
+                keyboardType = 0
+            }
+            self.textField.keyboardType = UIKeyboardType(rawValue: keyboardType)!
+        }
+    }
     
     @IBInspectable
     var placeholderText: String = "" {
@@ -61,6 +83,7 @@ open class FancyTextField: UIView, UITextFieldDelegate {
             updateView()
         }
     }
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)

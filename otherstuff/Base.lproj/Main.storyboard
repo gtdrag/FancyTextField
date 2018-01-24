@@ -38,6 +38,9 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="inputTextColor">
                                                         <color key="value" cocoaTouchSystemColor="darkTextColor"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="keyboard">
+                                                        <integer key="value" value="0"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="firtnameTextField:" destination="BYZ-38-t0r" eventType="valueChanged" id="y8G-Gp-TzG"/>
@@ -81,6 +84,9 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="inputTextColor">
                                                         <color key="value" cocoaTouchSystemColor="darkTextColor"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="number" keyPath="keyboardType">
+                                                        <integer key="value" value="7"/>
+                                                    </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="firtnameTextField:" destination="BYZ-38-t0r" eventType="valueChanged" id="JqV-Ii-9eR"/>
@@ -99,6 +105,7 @@
                                                     <userDefinedRuntimeAttribute type="color" keyPath="inputTextColor">
                                                         <color key="value" cocoaTouchSystemColor="darkTextColor"/>
                                                     </userDefinedRuntimeAttribute>
+                                                    <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Password"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="firtnameTextField:" destination="BYZ-38-t0r" eventType="valueChanged" id="gDb-5W-hfk"/>
