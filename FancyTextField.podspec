@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'FancyTextField'
-  s.version          = '0.1.1'
+  s.version          = '0.1.3'
   s.summary          = 'Its the UITextField but prettier'
  
   s.description      = <<-DESC
@@ -13,6 +13,6 @@ This TextField is really fancy! It will make your app look slick!
   s.source           = { :git => 'https://github.com/gtdrag/FancyTextField.git', :tag => s.version.to_s }
  
   s.ios.deployment_target = '10.0'
-  s.source_files = 'CustomTextInput/includes/*'
+  s.source_files = 'CustomTextInput/*.{swift,xib}'
  
 end
