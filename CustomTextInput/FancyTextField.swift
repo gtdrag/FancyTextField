@@ -115,7 +115,7 @@ public class FancyTextField: UIView, UITextFieldDelegate {
         self.layer.borderColor = UIColor.lightGray.cgColor
         self.layer.cornerRadius = 5
         self.rotation = self.traitCollection.verticalSizeClass.rawValue
-        self.clipsToBounds = truet
+        self.clipsToBounds = true
     }
     
     // in order to react to device rotation
