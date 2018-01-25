@@ -34,7 +34,6 @@ public class FancyTextField: UIView, UITextFieldDelegate {
     @IBOutlet var lineView: UIView!
     @IBOutlet var lineViewWidth: NSLayoutConstraint!
     @IBOutlet var placeHolderTextLabel: UILabel!
-    @IBOutlet var placeholderTextLeading: NSLayoutConstraint!
     @IBOutlet var textFieldTopConstraint: NSLayoutConstraint!
     @IBOutlet var labelBottomConstraint: NSLayoutConstraint!
     
@@ -62,6 +61,14 @@ public class FancyTextField: UIView, UITextFieldDelegate {
                 keyboardType = 0
             }
             self.textField.keyboardType = UIKeyboardType(rawValue: keyboardType)!
+        }
+    }
+    
+    @IBInspectable
+    var protected: Bool = false {
+        didSet {
+            textField.isSecureTextEntry = protected
+            updateView(selected: self.selected)
         }
     }
     

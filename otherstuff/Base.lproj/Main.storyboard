@@ -92,7 +92,7 @@
                                                     <action selector="firtnameTextField:" destination="BYZ-38-t0r" eventType="valueChanged" id="JqV-Ii-9eR"/>
                                                 </connections>
                                             </view>
-                                            <view alpha="0.0" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0p-EV-VEc" customClass="FancyTextField" customModule="CustomTextInput" customModuleProvider="target">
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R0p-EV-VEc" customClass="FancyTextField" customModule="CustomTextInput" customModuleProvider="target">
                                                 <rect key="frame" x="179" y="0.0" width="164" height="62.5"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <userDefinedRuntimeAttributes>
@@ -106,6 +106,7 @@
                                                         <color key="value" cocoaTouchSystemColor="darkTextColor"/>
                                                     </userDefinedRuntimeAttribute>
                                                     <userDefinedRuntimeAttribute type="string" keyPath="placeholderText" value="Password"/>
+                                                    <userDefinedRuntimeAttribute type="boolean" keyPath="protected" value="YES"/>
                                                 </userDefinedRuntimeAttributes>
                                                 <connections>
                                                     <action selector="firtnameTextField:" destination="BYZ-38-t0r" eventType="valueChanged" id="gDb-5W-hfk"/>
