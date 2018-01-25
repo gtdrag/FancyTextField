@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'FancyTextField'
-  s.version          = '0.1.3'
+  s.version          = '0.1.4'
   s.summary          = 'Its the UITextField but prettier'
  
   s.description      = <<-DESC
