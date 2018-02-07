@@ -36,6 +36,8 @@ public class FancyTextField: UIView, UITextFieldDelegate {
     @IBOutlet var placeHolderTextLabel: UILabel!
     @IBOutlet var textFieldTopConstraint: NSLayoutConstraint!
     @IBOutlet var labelBottomConstraint: NSLayoutConstraint!
+    @IBOutlet var validationMessageLabel: UILabel!
+    @IBOutlet var validationMessageLabelHeight: NSLayoutConstraint!
     
     enum validationState {
         case none
@@ -51,6 +53,22 @@ public class FancyTextField: UIView, UITextFieldDelegate {
     var valid = validationState.none {
         willSet {
             updateView(selected: self.selected)
+        }
+    }
+    
+    @IBInspectable
+    var errorString:String = "invalid input" {
+        didSet {
+            validationMessageLabel.text = errorString
+        }
+    }
+    
+    @IBInspectable
+    var fontSize:Float = 17.0 {
+        didSet{
+            let newSize = UIFont.systemFont(ofSize: CGFloat(fontSize))
+            self.textField.font = newSize
+            self.placeHolderTextLabel.font = newSize
         }
     }
     
@@ -123,6 +141,9 @@ public class FancyTextField: UIView, UITextFieldDelegate {
         self.layer.cornerRadius = 5
         self.rotation = self.traitCollection.verticalSizeClass.rawValue
         self.clipsToBounds = true
+        validationMessageLabel.backgroundColor = .red
+        validationMessageLabel.text = errorString
+        validationMessageLabel.font = UIFont.systemFont(ofSize: CGFloat(fontSize - 6.0))
     }
     
     // in order to react to device rotation
@@ -141,10 +162,13 @@ public class FancyTextField: UIView, UITextFieldDelegate {
         switch valid {
         case .invalid:
             lineView.layer.backgroundColor = UIColor.red.cgColor
+            validationMessageLabelHeight.constant = CGFloat(fontSize - 4.0)
         case .valid:
             lineView.layer.backgroundColor = UIColor.green.cgColor
+            validationMessageLabelHeight.constant = 0
         default:
             lineView.layer.backgroundColor = underlineColor.cgColor
+            validationMessageLabelHeight.constant = 0
         }
         animateUnderline(focus: selected)
         if shouldResize {
@@ -204,7 +228,7 @@ public class FancyTextField: UIView, UITextFieldDelegate {
     
     fileprivate func doResizeAnimation(focus: Bool) {
         self.shouldResize = focus ? true : false
-        textFieldTopConstraint.constant = focus ? self.frame.height * 0.33 : 0
+        textFieldTopConstraint.constant = focus ? self.frame.height * 0.15 : 0
         labelBottomConstraint.constant = focus ? -self.frame.height * 0.5 : 0
         let oldFrame = self.placeHolderTextLabel.frame
         UIView.animate(withDuration: 0.3) {

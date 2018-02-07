@@ -19,6 +19,8 @@
                 <outlet property="placeHolderTextLabel" destination="cvJ-8j-nJ6" id="ldw-tN-FFf"/>
                 <outlet property="textField" destination="o0h-4r-zZr" id="sDO-8L-WyE"/>
                 <outlet property="textFieldTopConstraint" destination="iTS-xx-UDq" id="SOQ-4j-JaR"/>
+                <outlet property="validationMessageLabel" destination="E8c-Af-518" id="BZX-GZ-uzT"/>
+                <outlet property="validationMessageLabelHeight" destination="Y39-Wz-z6M" id="AOK-1a-GZI"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -45,18 +47,30 @@
                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E8c-Af-518">
+                    <rect key="frame" x="0.0" y="56" width="379" height="0.0"/>
+                    <constraints>
+                        <constraint firstAttribute="height" id="Y39-Wz-z6M"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstAttribute="bottom" secondItem="E8c-Af-518" secondAttribute="bottom" id="GW3-Pv-QfS"/>
                 <constraint firstItem="cvJ-8j-nJ6" firstAttribute="leading" secondItem="o0h-4r-zZr" secondAttribute="leading" id="OPl-5x-cvB"/>
                 <constraint firstItem="cvJ-8j-nJ6" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="PTF-UE-UN2"/>
+                <constraint firstItem="E8c-Af-518" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="VgN-VH-cPM"/>
                 <constraint firstItem="o0h-4r-zZr" firstAttribute="trailing" secondItem="vUN-kp-3ea" secondAttribute="trailing" id="eeH-JA-c8a"/>
                 <constraint firstItem="gTV-vV-J0p" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="f4C-yp-1QY"/>
                 <constraint firstItem="o0h-4r-zZr" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="15" id="gKy-wr-ePB"/>
                 <constraint firstItem="o0h-4r-zZr" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="iTS-xx-UDq"/>
                 <constraint firstAttribute="bottom" secondItem="gTV-vV-J0p" secondAttribute="bottom" id="jx6-CL-NsL"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="E8c-Af-518" secondAttribute="trailing" id="l0h-dV-9VQ"/>
                 <constraint firstItem="cvJ-8j-nJ6" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="nZi-hG-lqG"/>
-                <constraint firstItem="o0h-4r-zZr" firstAttribute="bottom" secondItem="vUN-kp-3ea" secondAttribute="bottom" id="vEs-Wz-YJC"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="o0h-4r-zZr" secondAttribute="bottom" id="ydS-x8-AD7"/>
                 <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="cvJ-8j-nJ6" secondAttribute="trailing" id="zzx-Gm-r6e"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
