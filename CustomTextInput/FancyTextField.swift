@@ -39,7 +39,7 @@ public class FancyTextField: UIView, UITextFieldDelegate {
     @IBOutlet var validationMessageLabel: UILabel!
     @IBOutlet var validationMessageLabelHeight: NSLayoutConstraint!
     
-    enum validationState {
+    public enum validationState {
         case none
         case valid
         case invalid
@@ -49,8 +49,8 @@ public class FancyTextField: UIView, UITextFieldDelegate {
     private var selected = false
     public var text: String?
     private var rotation: Int?
-    var delegate:FancyTextFieldDelegate?
-    var valid = validationState.none {
+    public var delegate:FancyTextFieldDelegate?
+    public var valid = validationState.none {
         willSet {
             updateView(selected: self.selected)
         }
